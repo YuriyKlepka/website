@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:mvc="http://www.springframework.org/schema/mvc"
        xmlns="http://www.springframework.org/schema/beans"
@@ -15,6 +16,8 @@
                 <value>classpath:validation</value>
             </list>
         </property>
+        <!-- без точного указания кодировки не отображает русс -->
+        <property name="defaultEncoding" value="UTF-8"/>
     </bean>
 
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
