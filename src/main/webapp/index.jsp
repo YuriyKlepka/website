@@ -125,7 +125,7 @@ Created by IntelliJ IDEA.
             <img class="img-responsive" src="/resources/images/carousel/spacex500.jpg" alt="Природа" >
             <div class="carousel-caption" >
                 <h3>Space</h3>
-                <p>Слайдер 1 spacex500.jpg</p>
+                <p>Слайдер 1 spacex1600x500.jpg</p>
             </div>
         </div>
 
@@ -138,10 +138,10 @@ Created by IntelliJ IDEA.
         </div>
 
         <div class="item">
-            <img src="/resources/images/carousel/animegirlsx600.jpg" alt="">
+            <img src="/resources/images/carousel/animegirlsx500.png" alt="">
             <div class="carousel-caption">
                 <h3>Anime</h3>
-                <p>Слайдер 3 animegirlsx600.jpg</p>
+                <p>Слайдер 3 animegirlsx1920x500.jpg</p>
             </div>
         </div>
 
@@ -157,6 +157,56 @@ Created by IntelliJ IDEA.
         <span class="sr-only">Next</span>
     </a>
 </div>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<footer class="footer">
+    <div class="container">
+        <center><p>Это футтер сайта</p></center>
+    </div>
+</footer>
 
 </body>
 </html>

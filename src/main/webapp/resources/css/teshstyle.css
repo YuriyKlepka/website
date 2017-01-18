@@ -1,8 +1,14 @@
 body {
     /* background: url("/resources/images/rock.jpg"); */
-    background: whitesmoke;
+    background: white;
     background-size: cover;
 }
+
+.navbar-default {
+    background-color: #e7e7e7;
+    border-color: #e7e7e7;
+}
+
 
 /* выровнять окно авторизации */
 .form-group{
@@ -60,8 +66,14 @@ body {
     letter-spacing: -1px;
 }
 
-
-
+/* Футер */
+.footer {
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+    background-color: #e7e7e7;
+}
 
 @media (min-width: 768px) {
 
