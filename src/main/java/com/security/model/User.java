@@ -1,6 +1,7 @@
 package com.security.model;
 
 import javax.persistence.*;
+import java.util.Arrays;
 import java.util.Set;
 
 /**
@@ -94,4 +95,5 @@ public class User {
     public void setAvatar(byte[] avatar) {
         this.avatar = avatar;
     }
+
 }

@@ -28,6 +28,8 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
         User user = userDao.findByUsername(username);
 
+        System.err.println("Отработал loadUserByUsername Name: " + user.getUsername() + " Email: " + user.getEmail() + " Password: "+user.getPassword());
+
         Set<GrantedAuthority> grantedAuthorities = new HashSet<>();
 
         for (Role role : user.getRoles()){

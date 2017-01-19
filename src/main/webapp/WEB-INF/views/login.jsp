@@ -26,9 +26,6 @@
 
 <body>
 
-<!-- test картинка -->
-<!--<p><img src="/resources/images/nature.jpg" alt="This is test image .png"></p>-->
-
 <div class="container">
 
     <form method="POST" action="${contextPath}/login" class="form-signin">

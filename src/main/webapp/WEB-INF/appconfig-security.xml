@@ -41,6 +41,9 @@
     <beans:bean id="userDetailsServiceImpl"
                 class="com.security.service.UserDetailsServiceImpl"></beans:bean>
 
+    <beans:bean id="authorizedUser"
+                class="com.security.AuthorizedUser"></beans:bean>
+
     <beans:bean id="encoder"
                 class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder">
         <beans:constructor-arg name="strength" value="11"/>

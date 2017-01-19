@@ -1,6 +1,8 @@
 package com.security.controller;
 
 
+import com.security.AuthorizedUser;
+import com.security.dao.UserDao;
 import com.security.model.User;
 import com.security.service.SecurityService;
 import com.security.service.UserService;
@@ -25,6 +27,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class UserController {
 
     public static Logger logger = Logger.getLogger(UserController.class);
+
+    @Autowired
+    private AuthorizedUser authorizedUser;
+
+    @Autowired
+    private UserDao userDao;
 
     @Autowired
     private UserService userService;
@@ -75,6 +83,12 @@ public class UserController {
 
     @RequestMapping(value = {"/", "/welcome"}, method = RequestMethod.GET)
     public String welcome(Model model) {
+
+
+        User user = authorizedUser.getUserByUsername();
+        System.err.println("Отработал контроллер /welcome  Name: " + user.getUsername() + " Email: " + user.getEmail() + " Password: "+user.getPassword());
+
+
         return "welcome";
     }
 
@@ -92,5 +106,6 @@ public class UserController {
     public String profile(Model model){
         return "profile";
     }
+
 
 }

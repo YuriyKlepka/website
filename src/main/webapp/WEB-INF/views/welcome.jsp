@@ -1,3 +1,5 @@
+<%@ page import="com.security.AuthorizedUser" %>
+<%@ page import="org.springframework.beans.factory.annotation.Autowired" %>
 <%--
   Created by IntelliJ IDEA.
   User: Yuriy
@@ -33,7 +35,13 @@
         </form>
 
         <h2>Welcome ${pageContext.request.userPrincipal.name} | <a onclick="document.forms['logoutForm'].submit()">Logout</a>
-        </h2>
+
+        <jsp:useBean id="userAut" class="com.security.model.User"/>
+
+        <<jsp:getProperty name="userAut" property="username"/>
+        <<jsp:getProperty name="userAut" property="password"/>
+
+        <h2><c:out value="${userAut}"/></h2>
 
     </c:if>
 
