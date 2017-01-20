@@ -32,9 +32,6 @@ public class UserController {
     private AuthorizedUser authorizedUser;
 
     @Autowired
-    private UserDao userDao;
-
-    @Autowired
     private UserService userService;
 
     @Autowired
@@ -42,6 +39,22 @@ public class UserController {
 
     @Autowired
     private UserValidator userValidator;
+
+    @RequestMapping(value = "/", method = RequestMethod.GET)
+    public String index(Model model) {
+
+        return "index";
+    }
+
+    @RequestMapping(value = {"/profile","/profile/**"}, method = RequestMethod.GET)
+    public String profile(Model model){
+
+        if(authorizedUser.getUserByUsername() != null) {
+            User user = authorizedUser.getUserByUsername();
+            model.addAttribute("user",user);
+        }
+        return "profile";
+    }
 
     @RequestMapping(value = "/registration", method = RequestMethod.GET)
     public String registration(Model model){
@@ -85,8 +98,12 @@ public class UserController {
     public String welcome(Model model) {
 
 
-        User user = authorizedUser.getUserByUsername();
-        System.err.println("Отработал контроллер /welcome  Name: " + user.getUsername() + " Email: " + user.getEmail() + " Password: "+user.getPassword());
+        if(authorizedUser.getUserByUsername() != null){
+            User user = authorizedUser.getUserByUsername();
+
+            model.addAttribute("user",user);
+            System.err.println("Отработал контроллер /welcome  Name: " + user.getUsername() + " Email: " + user.getEmail() + " Password: "+user.getPassword());
+        }
 
 
         return "welcome";
@@ -102,10 +119,6 @@ public class UserController {
         return "admin";
     }
 
-    @RequestMapping(value = "/profile", method = RequestMethod.GET)
-    public String profile(Model model){
-        return "profile";
-    }
 
 
 }

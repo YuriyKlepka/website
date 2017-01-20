@@ -1,5 +1,3 @@
-<%@ page import="com.security.AuthorizedUser" %>
-<%@ page import="org.springframework.beans.factory.annotation.Autowired" %>
 <%--
   Created by IntelliJ IDEA.
   User: Yuriy
@@ -12,8 +10,8 @@
 
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 
-<!DOCTYPE html>
-<html lang="en">
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<html lang="ru">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -44,8 +42,9 @@
         <h2><c:out value="${userAut}"/></h2>
 
     </c:if>
-
 </div>
+
+<p><h3>${user.username}+${user.email}+${user.password}</h3></p>
 
 </body>
 </html>

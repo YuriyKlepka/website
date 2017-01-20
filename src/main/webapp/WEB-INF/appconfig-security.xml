@@ -11,7 +11,9 @@
         <!-- паттерн / это index.jsp -->
         <!-- <intercept-url pattern="/" access="hasAnyRole('ROLE_USER', 'ROLE_ADMIN')"/> -->
 
-        <intercept-url pattern="/welcome" access="hasAnyRole('ROLE_USER', 'ROLE_ADMIN')"/>
+        <intercept-url pattern="/user" access="hasAnyRole('ROLE_USER', 'ROLE_ADMIN')"/>
+
+        <intercept-url pattern="/user" access="hasAnyRole('ROLE_USER', 'ROLE_ADMIN')"/>
 
         <intercept-url pattern="/admin" access="hasRole('ROLE_ADMIN')"/>
 
@@ -22,7 +24,7 @@
 
         <logout logout-success-url="/login?logout"/> -->
 
-        <form-login login-page="/"
+        <form-login login-page="/index"
                     default-target-url="/"
                     authentication-failure-url="/"
                     username-parameter="username" password-parameter="password"/>

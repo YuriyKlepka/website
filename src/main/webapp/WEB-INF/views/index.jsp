@@ -17,12 +17,12 @@ Created by IntelliJ IDEA.
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="stylesheet" href="resources/css/teshstyle.css">
-    <link rel="stylesheet" href="resources/css/bootstrap.css">
+    <link rel="stylesheet" href="../../resources/css/teshstyle.css">
+    <link rel="stylesheet" href="../../resources/css/bootstrap.css">
     <script src="/resources/js/jquery-3.1.1.js"></script>
     <script src="/resources/js/bootstrap.js"></script>
 
-    <title>Shop</title>
+    <title>ElariumOnline</title>
 
     <form id="logoutForm" method="POST" action="${contextPath}/logout">
         <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
@@ -33,7 +33,7 @@ Created by IntelliJ IDEA.
 <nav class="navbar navbar-default">
     <div class="container-fluid">
         <div class="navbar-header">
-            <a class="navbar-brand" href="">OnlineShop</a>
+            <a class="navbar-brand" href="">Elarium Online</a>
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
                 <span class="sr-only">Mobile navigation</span>
                 <span class="icon-bar"></span>
@@ -43,11 +43,11 @@ Created by IntelliJ IDEA.
         </div>
         <div id="navbar" class="navbar-collapse collapse" aria-expanded="false" style="height: 1px">
             <ul class="nav navbar-nav">
-                <li><a href="#">Товары </a></li>
-                <li><a href="#">Доставка </a></li>
-                <li><a href="#">О нас </a></li>
+                <li><a href="#">Раздел 1</a></li>
+                <li><a href="#">Раздел 2</a></li>
+                <li><a href="#">Раздел 3</a></li>
             </ul>
-            <ul  class="nav navbar-nav navbar-right">
+            <ul class="nav navbar-nav navbar-right">
                 <!— Стандартная отрисовка —>
                 <c:if test="${pageContext.request.userPrincipal.name == null}">
                     <li><a href="/registration"><span class="glyphicon glyphicon-ok-sign"></span> Регистрация</a></li>
@@ -57,7 +57,7 @@ Created by IntelliJ IDEA.
 
                 <!— Отрисовка залогиненого юзера —>
                 <c:if test="${pageContext.request.userPrincipal.name != null}">
-                    <li><a href="/welcome"><span class="glyphicon glyphicon-user"></span> ${pageContext.request.userPrincipal.name}</a></li>
+                    <li><a href="/profile/${pageContext.request.userPrincipal.name}"><span class="glyphicon glyphicon-user"></span> ${pageContext.request.userPrincipal.name}</a></li>
                     <li><a href="/#" onclick="document.forms['logoutForm'].submit()"><span class="glyphicon glyphicon-log-out" ></span> Выйти</a></li>
                 </c:if>
 
