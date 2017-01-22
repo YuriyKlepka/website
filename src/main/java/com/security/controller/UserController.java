@@ -2,21 +2,23 @@ package com.security.controller;
 
 
 import com.security.AuthorizedUser;
-import com.security.dao.UserDao;
 import com.security.model.User;
 import com.security.service.SecurityService;
 import com.security.service.UserService;
 import com.security.validator.UserValidator;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.method.P;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 /**
  * Created by Yuriy on 10.12.2016.
@@ -46,7 +48,7 @@ public class UserController {
         return "index";
     }
 
-    @RequestMapping(value = {"/profile","/profile/**"}, method = RequestMethod.GET)
+    /*@RequestMapping(value = {"/profile","/profile/**"}, method = RequestMethod.GET)
     public String profile(Model model){
 
         if(authorizedUser.getUserByUsername() != null) {
@@ -54,7 +56,36 @@ public class UserController {
             model.addAttribute("user",user);
         }
         return "profile";
+    }*/
+
+
+    //возвращает профиль пользователя по его имени или 404 если он не найден
+    @RequestMapping(value = {"/profile/{name}/**"}, method = RequestMethod.GET)
+    public ModelAndView profile(@PathVariable("name") String name){
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("profile");
+
+        User user = userService.findByUsername(name);
+
+        if (user != null) {
+            modelAndView.getModel().put("user", user);
+            return modelAndView;
+        }
+
+        else {
+            modelAndView.setViewName("404");
+            modelAndView.getModel().put("user", name);
+        }
+
+        return modelAndView;
     }
+
+    @RequestMapping(value = {"/profile"}, method = RequestMethod.GET)
+    public String profile(Model model){
+
+        return "redirect:/";
+    }
+
 
     @RequestMapping(value = "/registration", method = RequestMethod.GET)
     public String registration(Model model){

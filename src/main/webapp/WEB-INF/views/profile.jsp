@@ -17,8 +17,8 @@
     <title>Profile</title>
 </head>
 <body>
-
-<h3>Hello, ${user.username} <a href="/">Главная</a></h3>
+ <h2>Это профиль пользователя ${user.username} </h2>
+ <!--<h3>Hello, ${user.username} <a href="/">Главная</a></h3> -->
 
 </body>
 </html>

@@ -44,7 +44,7 @@
     </c:if>
 </div>
 
-<p><h3>${user.username}+${user.email}+${user.password}</h3></p>
+ <!-- <p><h3>${user.username}+${user.email}+${user.password}</h3></p> -->
 
 </body>
 </html>
