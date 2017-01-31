@@ -11,7 +11,7 @@ Created by IntelliJ IDEA.
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
-
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html lang="ru">
 <head>
 
@@ -23,6 +23,7 @@ Created by IntelliJ IDEA.
     <script src="/resources/js/bootstrap.js"></script>
 
     <title>ElariumOnline</title>
+
 
     <form id="logoutForm" method="POST" action="${contextPath}/logout">
         <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
@@ -51,14 +52,15 @@ Created by IntelliJ IDEA.
                 <!— Стандартная отрисовка —>
                 <c:if test="${pageContext.request.userPrincipal.name == null}">
                     <li><a href="/registration"><span class="glyphicon glyphicon-ok-sign"></span> Регистрация</a></li>
-                    <button class="btn btn-danger navbar-btn" data-toggle="modal" data-target="#log-in-model">
+                    <button class="btn btn-info navbar-btn" data-toggle="modal" data-target="#log-in-model">
                         <span class="glyphicon glyphicon-log-in"></span> Войти</button>
                 </c:if>
 
                 <!— Отрисовка залогиненого юзера —>
                 <c:if test="${pageContext.request.userPrincipal.name != null}">
-                    <li><a href="/profile/${pageContext.request.userPrincipal.name}"><span class="glyphicon glyphicon-user"></span> ${pageContext.request.userPrincipal.name}</a></li>
-                    <li><a href="/#" onclick="document.forms['logoutForm'].submit()"><span class="glyphicon glyphicon-log-out" ></span> Выйти</a></li>
+                    <li><a href="/profile"><span class="glyphicon glyphicon-user"></span> ${pageContext.request.userPrincipal.name}</a></li>
+                    <li><button class="btn btn-primary navbar-btn" data-toggle="modal" onclick="document.forms['logoutForm'].submit()">
+                        <span class="glyphicon glyphicon-log-in"></span> Выйти</button></li>
                 </c:if>
 
             </ul>

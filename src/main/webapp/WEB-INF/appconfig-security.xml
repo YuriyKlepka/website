@@ -24,7 +24,7 @@
 
         <logout logout-success-url="/login?logout"/> -->
 
-        <form-login login-page="/index"
+        <form-login login-page="/"
                     default-target-url="/"
                     authentication-failure-url="/"
                     username-parameter="username" password-parameter="password"/>

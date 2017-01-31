@@ -8,7 +8,6 @@ import com.security.service.UserService;
 import com.security.validator.UserValidator;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.method.P;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
@@ -71,7 +70,6 @@ public class UserController {
             modelAndView.getModel().put("user", user);
             return modelAndView;
         }
-
         else {
             modelAndView.setViewName("404");
             modelAndView.getModel().put("user", name);
@@ -83,7 +81,12 @@ public class UserController {
     @RequestMapping(value = {"/profile"}, method = RequestMethod.GET)
     public String profile(Model model){
 
-        return "redirect:/";
+        if(authorizedUser.getUserByUsername() != null){
+            model.addAttribute("user",authorizedUser.getUserByUsername());
+            return "my";
+        }
+
+        return "404";
     }
 
 
