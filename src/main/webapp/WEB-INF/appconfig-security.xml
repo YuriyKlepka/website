@@ -26,12 +26,11 @@
 
         <form-login login-page="/"
                     default-target-url="/"
-                    authentication-failure-url="/"
+                    authentication-failure-url="/login?error"
                     username-parameter="username" password-parameter="password"/>
 
         <logout logout-success-url="/"/>
 
-        <!-- <logout logout-success-url="/login?logout"/> -->
     </http>
 
     <authentication-manager alias="authenticationManager">

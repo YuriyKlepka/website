@@ -41,23 +41,6 @@ public class UserController {
     @Autowired
     private UserValidator userValidator;
 
-    @RequestMapping(value = "/", method = RequestMethod.GET)
-    public String index(Model model) {
-
-        return "index";
-    }
-
-    /*@RequestMapping(value = {"/profile","/profile/**"}, method = RequestMethod.GET)
-    public String profile(Model model){
-
-        if(authorizedUser.getUserByUsername() != null) {
-            User user = authorizedUser.getUserByUsername();
-            model.addAttribute("user",user);
-        }
-        return "profile";
-    }*/
-
-
     //возвращает профиль пользователя по его имени или 404 если он не найден
     @RequestMapping(value = {"/profile/{name}/**"}, method = RequestMethod.GET)
     public ModelAndView profile(@PathVariable("name") String name){
@@ -89,7 +72,6 @@ public class UserController {
         return "404";
     }
 
-
     @RequestMapping(value = "/registration", method = RequestMethod.GET)
     public String registration(Model model){
 
@@ -118,18 +100,14 @@ public class UserController {
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String login(Model model, String error, String logout) {
         if (error != null) {
-            model.addAttribute("error", "Username or password is incorrect.");
-        }
-
-        if (logout != null) {
-            model.addAttribute("message", "Logged out successfully.");
+            model.addAttribute("error", "Имя пользователя или пароль указаны неверно. Попробуйте еще раз.");
         }
 
         return "login";
     }
 
     @RequestMapping(value = {"/", "/welcome"}, method = RequestMethod.GET)
-    public String welcome(Model model) {
+    public String welcome(Model model, String error) {
 
 
         if(authorizedUser.getUserByUsername() != null){
@@ -138,7 +116,9 @@ public class UserController {
             model.addAttribute("user",user);
             System.err.println("Отработал контроллер /welcome  Name: " + user.getUsername() + " Email: " + user.getEmail() + " Password: "+user.getPassword());
         }
-
+        if (error != null) {
+            model.addAttribute("error", "Username or password is incorrect.");
+        }
 
         return "welcome";
     }

@@ -24,14 +24,13 @@ Created by IntelliJ IDEA.
 
     <title>ElariumOnline</title>
 
-
     <form id="logoutForm" method="POST" action="${contextPath}/logout">
         <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
     </form>
 </head>
 <body>
-
-<nav class="navbar navbar-default">
+<c:if test="${error != null}"><h1>${error}</h1></c:if>
+<nav class="navbar navbar-default" >
     <div class="container-fluid">
         <div class="navbar-header">
             <a class="navbar-brand" href="">Elarium Online</a>
@@ -42,7 +41,7 @@ Created by IntelliJ IDEA.
                 <span class="icon-bar"></span>
             </button>
         </div>
-        <div id="navbar" class="navbar-collapse collapse" aria-expanded="false" style="height: 1px">
+        <div id="navbar" class="navbar-collapse collapse" aria-expanded="false" style="height: 1px" >
             <ul class="nav navbar-nav">
                 <li><a href="#">Раздел 1</a></li>
                 <li><a href="#">Раздел 2</a></li>
@@ -52,8 +51,7 @@ Created by IntelliJ IDEA.
                 <!— Стандартная отрисовка —>
                 <c:if test="${pageContext.request.userPrincipal.name == null}">
                     <li><a href="/registration"><span class="glyphicon glyphicon-ok-sign"></span> Регистрация</a></li>
-                    <button class="btn btn-info navbar-btn" data-toggle="modal" data-target="#log-in-model">
-                        <span class="glyphicon glyphicon-log-in"></span> Войти</button>
+                    <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Войти</a></li>
                 </c:if>
 
                 <!— Отрисовка залогиненого юзера —>
@@ -68,48 +66,6 @@ Created by IntelliJ IDEA.
 
     </div>
 </nav>
-
-<!-- Всплывающие окно авторизации -->
- <div class="modal fade" id="log-in-model" role="dialog">
-     <div class="modal-dialog">
-         <div class="modal-content" >
-             <div class="modal-header">
-                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                 <h4 class="modal-title">Вход</h4>
-             </div>
-             <!-- Форма входа -->
-             <form method="POST" action="${contextPath}/login" class="form-horizontal" role="form">
-
-                 <div class="form-group">
-                     <label for="inputLogin3" class="col-sm-2 control-label">Логин</label>
-                     <div class="col-sm-6">
-                         <input name="username" type="text" class="form-control" id="inputLogin3" placeholder="Username" autofocus="true"/>
-                     </div>
-                 </div>
-
-                 <div class="form-group ">
-                     <label for="inputPassword3" class="col-sm-2 control-label">Пароль</label>
-                     <div class="col-sm-6">
-                         <input name="password" type="password" class="form-control" id="inputPassword3" placeholder="Password">
-                     </div>
-                 </div>
-
-                 <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-
-                 <div class="form-group">
-                     <div class="col-sm-offset-2 col-sm-10">
-                         <button class="btn btn-default" type="submit">Войти</button>
-                     </div>
-                 </div>
-             </form>
-             <!-- Конец Форма входа-->
-             <div class="modal-footer">
-                 <button type="button" class="btn btn-danger" data-dismiss="modal">Отмена</button>
-             </div>
-         </div>
-
-     </div>
- </div>
 
 <!-- Карусель -->
 <div id="myCarousel" class="carousel slide" data-ride="carousel">

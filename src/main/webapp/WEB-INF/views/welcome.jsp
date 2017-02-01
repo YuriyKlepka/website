@@ -42,6 +42,7 @@
         <h2><c:out value="${userAut}"/></h2>
 
     </c:if>
+            <h1>${error}</h1>
 </div>
 
  <!-- <p><h3>${user.username}+${user.email}+${user.password}</h3></p> -->
