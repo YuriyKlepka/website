@@ -17,7 +17,9 @@
 <head>
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <link rel="stylesheet" href="resources/css/bootstrap.css">
+    <link rel="stylesheet" href="resources/css/teststyle.css">
 
     <title>Create an account</title>
 
@@ -64,6 +66,8 @@
 
         <button class="btn btn-lg btn-primary btn-block" type="submit">Отправить</button>
     </form:form>
+
+    <h4 class="text-center"><a href="/">На главкую</a></h4>
 
 </div>
 

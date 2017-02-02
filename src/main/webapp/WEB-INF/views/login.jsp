@@ -16,7 +16,7 @@
 <head>
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="../../resources/css/teshstyle.css">
+    <link rel="stylesheet" href="../../resources/css/teststyle.css">
     <link rel="stylesheet" href="../../resources/css/bootstrap.css">
     <script src="/resources/js/jquery-3.1.1.js"></script>
     <script src="/resources/js/bootstrap.js"></script>

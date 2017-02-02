@@ -14,10 +14,9 @@ Created by IntelliJ IDEA.
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html lang="ru">
 <head>
-
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="stylesheet" href="../../resources/css/teshstyle.css">
+    <link rel="stylesheet" href="../../resources/css/teststyle.css">
     <link rel="stylesheet" href="../../resources/css/bootstrap.css">
     <script src="/resources/js/jquery-3.1.1.js"></script>
     <script src="/resources/js/bootstrap.js"></script>
@@ -30,7 +29,7 @@ Created by IntelliJ IDEA.
 </head>
 <body>
 <c:if test="${error != null}"><h1>${error}</h1></c:if>
-<nav class="navbar navbar-default" >
+<nav class="navbar navbar-inverse" >
     <div class="container-fluid">
         <div class="navbar-header">
             <a class="navbar-brand" href="">Elarium Online</a>

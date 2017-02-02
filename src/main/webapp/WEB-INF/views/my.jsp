@@ -17,7 +17,7 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="stylesheet" href="../../resources/css/teshstyle.css">
+    <link rel="stylesheet" href="../../resources/css/teststyle.css">
     <link rel="stylesheet" href="../../resources/css/bootstrap.css">
     <script src="/resources/js/jquery-3.1.1.js"></script>
     <script src="/resources/js/bootstrap.js"></script>
@@ -29,9 +29,51 @@
     </form>
 </head>
 <body>
+<nav class="navbar navbar-inverse" >
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="">Elarium Online</a>
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Mobile navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse" aria-expanded="false" style="height: 1px" >
+            <ul class="nav navbar-nav">
+                <li><a href="#">Раздел 1</a></li>
+                <li><a href="#">Раздел 2</a></li>
+                <li><a href="#">Раздел 3</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <!— Стандартная отрисовка —>
+                <c:if test="${pageContext.request.userPrincipal.name == null}">
+                    <li><a href="/registration"><span class="glyphicon glyphicon-ok-sign"></span> Регистрация</a></li>
+                    <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Войти</a></li>
+                </c:if>
 
-<h2>${user.username}</h2>
-<h2>${user.email}</h2>
-<h2>${user.id}</h2>
+                <!— Отрисовка залогиненого юзера —>
+                <c:if test="${pageContext.request.userPrincipal.name != null}">
+                    <li><a href="/profile"><span class="glyphicon glyphicon-user"></span> ${pageContext.request.userPrincipal.name}</a></li>
+                    <li><button class="btn btn-primary navbar-btn" data-toggle="modal" onclick="document.forms['logoutForm'].submit()">
+                        <span class="glyphicon glyphicon-log-in"></span> Выйти</button></li>
+                </c:if>
+
+            </ul>
+        </div>
+
+    </div>
+</nav>
+
+<h2 style="color: #761c19">Username = ${user.username}</h2>
+<h2 style="color: #761c19">Email = ${user.email}</h2>
+<h2 style="color: #761c19">ID =  ${user.id}</h2>
+
+<footer class="footer">
+    <div class="container">
+        <center><p>Это футтер сайта</p></center>
+    </div>
+</footer>
 </body>
 </html>

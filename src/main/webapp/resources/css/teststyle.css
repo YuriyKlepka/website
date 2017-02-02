@@ -1,14 +1,7 @@
 body {
-        /* background: url("/resources/images/rock.jpg"); */
-    background: white;
+    background: url("/resources/images/rock.jpg");
     background-size: cover;
 }
-
-.navbar-default {
-    background-color: #e7e7e7;
-    border-color: #e7e7e7;
-}
-
 
 /* выровнять окно авторизации */
 .form-group{
@@ -77,6 +70,10 @@ body {
 
 @media (min-width: 768px) {
 
+     .navbar {
+        border-radius: 0px;
+    }
+
     /* Remove the edge padding needed for mobile */
     .marketing {
         padding-right: 0;
@@ -114,6 +111,11 @@ body {
 }
 
 @media (min-width: 992px) {
+
+    .navbar {
+        border-radius: 0px;
+    }
+
     .featurette-heading {
         margin-top: 120px;
     }
